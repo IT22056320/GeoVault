@@ -1,59 +1,64 @@
-import { useState, useEffect } from "react"
-import { useCountry } from "../context/CountryContext"
-import { Search, ChevronDown, Globe, MessageSquare } from "lucide-react"
+import { useState, useEffect } from "react";
+import { useCountry } from "../context/CountryContext";
+import { Search, ChevronDown, Globe, MessageSquare } from "lucide-react";
 
 function SearchFilters() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [region, setRegion] = useState("")
-  const [language, setLanguage] = useState("")
-  const { searchCountries, filterByRegion, filterByLanguage, availableLanguages } = useCountry()
+  const [searchTerm, setSearchTerm] = useState("");
+  const [region, setRegion] = useState("");
+  const [language, setLanguage] = useState("");
+  const {
+    searchCountries,
+    filterByRegion,
+    filterByLanguage,
+    availableLanguages,
+  } = useCountry();
 
   // Debounce search to avoid too many API calls
   useEffect(() => {
     const timer = setTimeout(() => {
       if (searchTerm) {
-        searchCountries(searchTerm)
+        searchCountries(searchTerm);
         // Reset other filters when searching
-        setRegion("")
-        setLanguage("")
+        setRegion("");
+        setLanguage("");
       }
-    }, 500)
+    }, 500);
 
-    return () => clearTimeout(timer)
-  }, [searchTerm, searchCountries])
+    return () => clearTimeout(timer);
+  }, [searchTerm, searchCountries]);
 
   // Handle region change
   const handleRegionChange = (e) => {
-    const selectedRegion = e.target.value
-    setRegion(selectedRegion)
-    setLanguage("") // Reset language filter
-    setSearchTerm("") // Reset search term
-    filterByRegion(selectedRegion)
-  }
+    const selectedRegion = e.target.value;
+    setRegion(selectedRegion);
+    setLanguage(""); // Reset language filter
+    setSearchTerm(""); // Reset search term
+    filterByRegion(selectedRegion);
+  };
 
   // Handle language change
   const handleLanguageChange = (e) => {
-    const selectedLanguage = e.target.value
-    setLanguage(selectedLanguage)
-    setRegion("") // Reset region filter
-    setSearchTerm("") // Reset search term
-    filterByLanguage(selectedLanguage)
-  }
+    const selectedLanguage = e.target.value;
+    setLanguage(selectedLanguage);
+    setRegion(""); // Reset region filter
+    setSearchTerm(""); // Reset search term
+    filterByLanguage(selectedLanguage);
+  };
 
   // Handle search form submission
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (searchTerm) {
-      searchCountries(searchTerm)
+      searchCountries(searchTerm);
       // Reset other filters
-      setRegion("")
-      setLanguage("")
+      setRegion("");
+      setLanguage("");
     }
-  }
+  };
 
   return (
-    <div className="mb-8 flex flex-col md:flex-row md:justify-between gap-4">
-      <form onSubmit={handleSubmit} className="relative md:w-1/3">
+    <div className="mb-8 flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="relative w-full">
         <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
             <Search className="h-5 w-5 text-blue-500" />
@@ -69,8 +74,8 @@ function SearchFilters() {
         </div>
       </form>
 
-      <div className="w-full md:w-1/3 flex flex-col sm:flex-row gap-4">
-        <div className="relative flex-1">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <Globe className="h-5 w-5 text-blue-500" />
           </div>
@@ -92,7 +97,7 @@ function SearchFilters() {
           </div>
         </div>
 
-        <div className="relative flex-1">
+        <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <MessageSquare className="h-5 w-5 text-blue-500" />
           </div>
@@ -115,7 +120,7 @@ function SearchFilters() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SearchFilters
+export default SearchFilters;

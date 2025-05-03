@@ -25,7 +25,7 @@ View the live application - https://geo-vault.vercel.app/
 - **Styling:** Tailwind CSS
 - **State Management:** React Context API
 - **API Integration:** REST Countries API
-- **Testing:** Vitest and React Testing Library
+- **Testing:** Jest and React Testing Library
 - **Build Tool:** Vite
 
 ## Application Setup

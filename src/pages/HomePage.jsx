@@ -3,9 +3,9 @@ import SearchFilters from "../components/SearchFilters";
 
 function HomePage() {
   return (
-    <main className="container mx-auto px-4 py-8">
-      <div className="mb-12 text-center">
-        <div className="relative py-12 px-6 mb-8 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-800 text-white overflow-hidden">
+    <main className="container mx-auto px-4 py-4 sm:py-8">
+      <div className="mb-8 sm:mb-12 text-center">
+        <div className="relative py-8 sm:py-12 px-4 sm:px-6 mb-6 sm:mb-8 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-800 text-white overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
               <defs>
@@ -60,10 +60,10 @@ function HomePage() {
               <rect width="100%" height="100%" fill="url(#world-pattern)" />
             </svg>
           </div>
-          <h1 className="text-5xl font-bold mb-4 relative">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4 relative">
             Explore Our World
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto relative">
+          <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl mx-auto relative">
             Discover detailed information about countries, cultures, and
             geography from around the globe
           </p>
