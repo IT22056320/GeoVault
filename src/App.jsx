@@ -5,6 +5,7 @@ import CountryPage from "./pages/CountryPage"
 import LoginPage from "./pages/LoginPage"
 import FavoritesPage from "./pages/FavoritesPage"
 import NotFoundPage from "./pages/NotFoundPage"
+import { Globe, Facebook, Twitter, Instagram } from "lucide-react"
 
 function App() {
   return (
@@ -19,9 +20,26 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
-      <footer className="bg-gray-800 text-white py-6">
+      <footer className="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
-          <p>© 2025 GeoVault | Your World of Data, One Request Away</p>
+          <div className="flex flex-col items-center justify-center space-y-4">
+            <div className="flex items-center">
+              <Globe className="h-6 w-6 mr-2 text-blue-300" />
+              <span className="text-xl font-bold">GeoVault</span>
+            </div>
+            <p className="text-blue-200">© 2025 GeoVault | Your World of Data, One Request Away</p>
+            <div className="flex space-x-4 mt-2">
+              <a href="#" className="text-blue-300 hover:text-white transition-colors">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-blue-300 hover:text-white transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-blue-300 hover:text-white transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

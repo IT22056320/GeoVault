@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect } from "react"
 import { useCountry } from "../context/CountryContext"
 import CountryCard from "./CountryCard"
